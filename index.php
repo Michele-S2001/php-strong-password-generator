@@ -1,8 +1,14 @@
-<?php 
-include __DIR__ . '\functions.php';
+<?php
+include __DIR__ . '/functions.php';
+include __DIR__ . '/start_session.php';
 
-$pass_length = $_GET['pass_length'] ?? -1;
+$pass_length = $_GET['pass_length'] ?? null;
 $int_pass_length = intval($pass_length);
+
+if($int_pass_length > 0) {
+  $_SESSION['password'] = getRandomPassword($int_pass_length);
+  header('location: .\password.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +34,7 @@ $int_pass_length = intval($pass_length);
     <div class="row">
       <div class="col-12 text-center">
         <?php if($int_pass_length > 0) { ?>
-          <p class="text-break"><?= getRandomPassword($pass_length) ?></p>
+          <p class="text-break"><?= getRandomPassword($int_pass_length) ?></p>
         <?php } else { ?>
           <p>Inserire numero maggiore di 0 !</p>
         <?php } ?>
