@@ -10,3 +10,9 @@ Dobbiamo creare una pagina che permetta ai nostri utenti di utilizzare il nostro
 Una nostra funzione utilizzerà questo dato per generare una password casuale 
 (composta da lettere, lettere maiuscole, numeri e simboli) da restituire all’utente.
 Scriviamo tutto (logica e layout) in un unico file index.php
+
+- generare un numero casuale finchè la stringa non raggiunge la lunghezza desiderata
+
+- taglio la stringa
+
+- rimischio la stringa
