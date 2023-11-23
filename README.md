@@ -16,3 +16,7 @@ Scriviamo tutto (logica e layout) in un unico file index.php
 - taglio la stringa
 
 - rimischio la stringa
+
+## Milestone 2
+
+- Verificato il corretto funzionamento del nostro codice, spostiamo la logica in un file functions.php che includeremo poi nella pagina principale
