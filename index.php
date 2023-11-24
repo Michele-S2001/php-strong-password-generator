@@ -2,8 +2,8 @@
 include __DIR__ . '/functions.php';
 include __DIR__ . '/start_session.php';
 
-$pass_length = $_GET['pass_length'] ?? null;
-$int_pass_length = intval($pass_length);
+$pass_length = $_GET['pass_length'] ?? false;
+$int_pass_length = intval($pass_length);  
 
 if($int_pass_length > 0) {
   $_SESSION['password'] = getRandomPassword($int_pass_length);
@@ -26,7 +26,14 @@ if($int_pass_length > 0) {
         <h3 class="mb-4">Genera una password random</h3>
         <!-- form -->
         <form class="mb-2 d-flex gap-2" action="" method="get">
-          <input class="form-control" name="pass_length" type="text" placeholder="Inserire lunghezza password">
+          <input 
+            required
+            class="form-control" 
+            name="pass_length" 
+            type="number" 
+            min="4"
+            max="32"
+            placeholder="Inserire lunghezza password">
           <button class="btn btn-primary" type="submit">Genera</button>
         </form>
       </div>
@@ -36,7 +43,7 @@ if($int_pass_length > 0) {
         <?php if($int_pass_length > 0) { ?>
           <p class="text-break"><?= getRandomPassword($int_pass_length) ?></p>
         <?php } else { ?>
-          <p>Inserire numero maggiore di 0 !</p>
+          <p>Inserire numero</p>
         <?php } ?>
       </div>
     </div>
